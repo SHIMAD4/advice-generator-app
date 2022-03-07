@@ -75,6 +75,10 @@ body {
     position: relative;
     display: block;
   }
+  .blinking{
+    padding:20px;
+    animation: blinking 2s infinite;
+  }
   button {
     position: absolute;
     left: 50%;
@@ -90,8 +94,37 @@ body {
   button:hover {
     background-color: hsl(150, 59%, 54%);
   }
+  button:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+  }
+  button:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, $neon-green, hsl(150, 59%, 45%));
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: .5s;
+  }
 }
-
+@keyframes blinking{
+  0% {
+    background-color:$neon-green;
+  }
+  50% {
+    background-color:hsl(150, 59%, 45%);
+  }
+  100% {
+    background-color:neon-green;
+  }
+}
 @media (min-width: 500px) {
   .container {
     max-width: 480px;

@@ -89,6 +89,12 @@ body button {
   display: block;
 }
 
+.container .blinking {
+  padding: 20px;
+  -webkit-animation: blinking 2s infinite;
+          animation: blinking 2s infinite;
+}
+
 .container button {
   position: absolute;
   left: 50%;
@@ -106,6 +112,55 @@ body button {
 
 .container button:hover {
   background-color: #44cf8a;
+}
+
+.container button:hover:before {
+  -webkit-filter: blur(20px);
+          filter: blur(20px);
+  opacity: 1;
+  -webkit-animation: animate 8s linear infinite;
+          animation: animate 8s linear infinite;
+}
+
+.container button:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  z-index: -1;
+  background: -webkit-gradient(linear, left top, right top, from(#52ffa8), to(#2fb673));
+  background: linear-gradient(90deg, #52ffa8, #2fb673);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+@-webkit-keyframes blinking {
+  0% {
+    background-color: #52ffa8;
+  }
+  50% {
+    background-color: #2fb673;
+  }
+  100% {
+    background-color: neon-green;
+  }
+}
+
+@keyframes blinking {
+  0% {
+    background-color: #52ffa8;
+  }
+  50% {
+    background-color: #2fb673;
+  }
+  100% {
+    background-color: neon-green;
+  }
 }
 
 @media (min-width: 500px) {
