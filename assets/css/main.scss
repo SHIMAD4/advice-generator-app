@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Manrope:wght@800&display=swap");
+
+$light-cyan: hsl(193, 38%, 86%);
+$neon-green: hsl(150, 100%, 66%);
+$grayish-blue: hsl(217, 19%, 38%);
+$dark-grayish-blue: hsl(218, 23%, 16%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $dark-grayish-blue;
+  padding: 1.25rem;
+  font-family: "Manrope", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 0.1px);
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
+
+  button {
+    user-select: none;
+  }
+}
+
+.container {
+  background-color: $grayish-blue;
+  padding: 1.25rem 1.25rem 3rem;
+  color: #ffffff;
+  border-radius: 1.25rem;
+  position: relative;
+  h1 {
+    color: $neon-green;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.4rem;
+  }
+  p {
+    font-size: 28px;
+    color: $light-cyan;
+    line-height: 1.5;
+    padding-bottom: 2rem;
+  }
+  picture img {
+    background-color: $grayish-blue;
+    position: relative;
+  }
+  picture::before {
+    content: "";
+    width: 40%;
+    height: 1px;
+    background-color: $light-cyan;
+    right: 1.25rem;
+    bottom: 3.8rem;
+    position: absolute;
+    display: block;
+    z-index: 99;
+  }
+  picture::after {
+    content: "";
+    width: 45%;
+    height: 1px;
+    background-color: $light-cyan;
+    left: 0;
+    bottom: 0.74rem;
+    position: relative;
+    display: block;
+  }
+  button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.25rem;
+    bottom: -2rem;
+    background-color: $neon-green;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  button:hover {
+    background-color: hsl(150, 59%, 54%);
+  }
+}
+
+@media (min-width: 500px) {
+  .container {
+    max-width: 480px;
+  }
+}
